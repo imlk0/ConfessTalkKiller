@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+
+        <layer-list>
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+
+                    <corners android:bottomLeftRadius="2dp" android:bottomRightRadius="2dp" />
+                    <stroke android:width="2dp" android:color="#ccc" />
+
+                </shape>
+
+            </item>
+
+            　　
+            <item android:bottom="2dp">
+                <shape android:dither="true" android:shape="rectangle">
+                    <corners android:bottomLeftRadius="2dp" android:bottomRightRadius="2dp" />
+                    <solid android:color="@color/color_text_value_pressed" />
+                </shape>
+            </item>
+        </layer-list>
+
+
+    </item>
+
+    <item>
+        <layer-list>
+            <item>
+                <shape android:dither="true" android:shape="rectangle">
+
+                    <corners android:bottomLeftRadius="2dp" android:bottomRightRadius="2dp" />
+                    <stroke android:width="2dp" android:color="#ccc" />
+
+                </shape>
+
+            </item>
+
+            　　
+            <item android:bottom="2dp">
+                <shape android:dither="true" android:shape="rectangle">
+                    <corners android:bottomLeftRadius="2dp" android:bottomRightRadius="2dp" />
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+
+    </item>
+
+</selector>
+
