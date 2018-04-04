@@ -1,9 +1,8 @@
 # ConfessTalkKiller
----
+
 **QQ坦白说揭露者**
 **ConfessTalkKiller of QQ for Android**
 
----
 在坦白说聊天输入框中显示对方QQ号和昵称
 
 ---
