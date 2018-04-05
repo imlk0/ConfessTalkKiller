@@ -1,6 +1,8 @@
 package top.imlk.confesstalk.hooker;
 
+import android.app.Application;
 import android.content.Context;
+import android.os.Debug;
 import android.text.TextWatcher;
 import android.widget.TextView;
 
@@ -27,22 +29,27 @@ public class Injecter implements IXposedHookLoadPackage {
 
             XposedBridge.log("confesstalk Found QQ!!!!!!!!!!!!!!!!!!!!!!");
 
+            final XC_MethodHook.Unhook[] unhook = new XC_MethodHook.Unhook[1];
 
-            XposedHelpers.findAndHookMethod("com.tencent.mobileqq.qfix.QFixApplication", loadPackageParam.classLoader, "attachBaseContext", Context.class, new XC_MethodHook() {
-
+            unhook[0] = XposedHelpers.findAndHookMethod("com.tencent.mobileqq.qfix.QFixApplication", loadPackageParam.classLoader, "onCreate", new XC_MethodHook() {
 
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 
+                    Context context = ((Application) param.thisObject).getBaseContext();
 
-                    XposedBridge.log("confesstalk QQChatPic clasloader: " + ((Context) param.args[0]).getClassLoader().getClass().getName());
+                    XposedBridge.log("confesstalk clasloader: " + context.getClassLoader().getClass().getName());
 
 
-                    if (HookHelper.isMainProcess(((Context) param.args[0]))) {
+                    if (HookHelper.isMainProcess(context)) {
+
+//                        Debug.waitForDebugger();
 
                         XposedBridge.log("confesstalk isMainProcess!!");
 
-                        loadPackageParam.classLoader = ((Context) param.args[0]).getClassLoader();
+                        loadPackageParam.classLoader = context.getClassLoader();
+
+                        unhook[0].unhook();
 
                         performHook_QQ(loadPackageParam);
 
@@ -52,6 +59,7 @@ public class Injecter implements IXposedHookLoadPackage {
 
 
         }
+
     }
 
     public static void performHook_QQ(final XC_LoadPackage.LoadPackageParam loadPackageParam) throws NoSuchMethodException, NoSuchFieldException {
