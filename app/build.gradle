@@ -6,7 +6,7 @@ android {
         applicationId "top.imlk.confesstalk"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 17
+        versionCode 18
         versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

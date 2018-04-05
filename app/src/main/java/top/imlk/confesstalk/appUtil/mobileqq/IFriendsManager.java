@@ -16,7 +16,7 @@ public class IFriendsManager {
             if (ConcurrentHashMap.class == field.getType()) {
                 field.setAccessible(true);
                 ConcurrentHashMap concurrentHashMap = (ConcurrentHashMap) field.get(friendsManager);
-                if (concurrentHashMap.size() > 0) {
+                if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
                     if (concurrentHashMap.get(concurrentHashMap.keySet().toArray()[0]).getClass() == IMember.CLASS.friendsClass) {
                         return concurrentHashMap;
                     }
