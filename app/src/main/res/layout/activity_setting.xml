@@ -242,7 +242,7 @@
                     android:background="@drawable/card_top_bg"
                     android:gravity="center_vertical"
                     android:paddingLeft="14dp"
-                    android:text="鹅群"
+                    android:text="鹅群（没啥事就别进吧，满炸了）"
                     android:textColor="@color/color_text_title"
                     android:textSize="14sp"
                     android:textStyle="bold" />

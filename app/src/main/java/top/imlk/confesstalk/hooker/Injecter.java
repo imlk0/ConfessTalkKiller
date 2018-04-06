@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Debug;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -86,8 +88,25 @@ public class Injecter implements IXposedHookLoadPackage {
                         XposedBridge.log("confesstalk finish set");
 
                     }
-
                 }
+
+            }
+        });
+
+
+        XposedHelpers.findAndHookMethod(IMember.CLASS.messageForConfessNewsClass, "doParse", new XC_MethodHook() {
+
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                super.afterHookedMethod(param);
+
+                IMember.FIELD.messageForConfessNewsClass_strConfessorNick.set(
+                        param.thisObject
+                        , "QQ号:" + IMember.FIELD.messageForConfessNewsClass_strConfessorUin.get(param.thisObject)
+//                        , IMember.FIELD.messageForConfessNewsClass_strConfessorNick.get(param.thisObject)
+//                                + "\nQQ:"
+//                                + IMember.FIELD.messageForConfessNewsClass_strConfessorUin.get(param.thisObject)
+                );
 
             }
         });
