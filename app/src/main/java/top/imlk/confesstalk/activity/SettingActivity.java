@@ -58,7 +58,7 @@ public class SettingActivity extends Activity implements View.OnClickListener {
     }
 
     public String randomString() {
-        String[] strings = {"我女票很漂亮，能捐赠我吗(*/ω＼*)",
+        String[] strings = {"学生党苦逼啊(ง •_•)ง",
                 "我手机很旧了，能支持我换新吗( •̀ ω •́ )✧",
                 "施主，能给点钱吗(。_。)",
                 "苦逼开发者求喂养(ง •_•)ง",
